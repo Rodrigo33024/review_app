@@ -1,1 +1,12 @@
 <h1>Index</h1>
+<div class="row">
+  <% @plays.each do |play| %>
+    <h2><%= link_to play.title, play_path(play) %></h2>
+    <div><%= play.title %></div>
+    <div><%= play.description %></div>
+    <div><%= play.director %></div>
+  <% end %>
+
+  <%= link_to 'Create New Play', new_play_path, class: 'btn btn-default' %>
+
+</div>
