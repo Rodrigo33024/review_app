@@ -1,8 +1,15 @@
-<div class="row">
-  <% @plays.each do |play| %>
-    <h2><%= link_to play.title, play_path(play) %></h2>
-    <div><%= play.title %></div>
-    <div><%= play.description %></div>
-    <div><%= play.director %></div>
-  <% end %>
-</div>
+<h1 class="current-category">
+  <%= params[:category] %>
+</h1>
+<% if @plays.count == 0 %>
+  <p>There are no plays with in this category.</p>
+  <% else %>
+  <div class="row">
+    <% @plays.each do |play| %>
+      <h2><%= link_to play.title, play_path(play) %></h2>
+      <div><%= play.title %></div>
+      <div><%= play.description %></div>
+      <div><%= play.director %></div>
+    <% end %>
+  </div>
+<% end %>
