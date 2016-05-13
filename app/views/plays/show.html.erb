@@ -6,6 +6,10 @@
     <h2><%= @play.title %></h2>
     <h3><%= @play.director %></h3>
     <h4><%= @play.category.name %></h4>
+    <h4 class="average-review" data-rating="<%= @average_review %>"></h4>
+    <div>
+      Number of reviews <%= @play.reviews.count %>
+    </div>
     <p>
       <%= @play.description %>
     </p>
@@ -39,6 +43,14 @@
     readOnly: true,
     score: function() {
       return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+
+  $('.average-review').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-rating');
     },
     path: '/assets/'
   });
